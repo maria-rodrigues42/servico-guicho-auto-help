@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Help  |  Resgate 24h Rio de Janeiro</title>
+    <meta name="description" content="Guincho 24h em Guarulhos, Dutra e Ayrton Senna. Chegada rápida, preço justo e segurança para o seu veículo. Ligue já!">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            Auto
+            <span>Help</span>
+        </div>
+        <a href="tel:+5521993337083" class="header-btn">
+            <i class="fa-solid fa-phone"></i> Ligar
+        </a>
+    </header>
+
+    <section class="hero">
+        <div class="hazard-strip"></div>
+        <img src="./images/auto-help-logo.jpeg" alt="" class="hero-image">
+        <h1 class="hidden">Precisou de Resgate?<span>Nós Chegamos!</span></h1>
+        <p class="hidden">Atendimento de emergência rápido e seguro para o seu veículo em Guarulhos e rodovias da região. O melhor preço do mercado.</p>
+        
+        <div class="cta-container hidden">
+            <a href="tel:+5521993337083" class="btn-giant btn-main-call">
+                <i class="fa-solid fa-phone-volume"></i> Ligar Agora
+            </a>
+            <a href="https://wa.me/5521993337083?text=Olá,%20estou%20precisando%20de%20um%20guincho%20agora!" class="btn-giant btn-main-wa" target="_blank">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <div class="benefits-strip hidden">
+        <div class="benefit-item"><i class="fa-solid fa-clock"></i> Atendimento 24 Horas</div>
+        <div class="benefit-item"><i class="fa-solid fa-bolt"></i> Chegada Imediata</div>
+        <div class="benefit-item"><i class="fa-solid fa-credit-card"></i> Aceitamos Cartões</div>
+    </div>
+
+    <section class="services">
+        <div class="section-header hidden">
+            <h2>Nossos <span>Serviços</span></h2>
+            <p>Equipamento moderno e preparado para qualquer emergência.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-box hidden">
+                <div class="icon-wrapper"><i class="fa-solid fa-car"></i></div>
+                <h3>Veículos Leves</h3>
+                <p>Remoção de carros de passeio, SUVs e caminhonetes com plataforma hidráulica segura.</p>
+            </div>
+            <div class="service-box hidden">
+                <div class="icon-wrapper"><i class="fa-solid fa-motorcycle"></i></div>
+                <h3>Motocicletas</h3>
+                <p>Transporte especializado para motos, garantindo total estabilidade durante o trajeto.</p>
+            </div>
+            <div class="service-box hidden">
+                <div class="icon-wrapper"><i class="fa-solid fa-car-battery"></i></div>
+                <h3>Carga de Bateria</h3>
+                <p>Bateria descarregou? Vamos até o local fazer a transferência de carga (chupeta) para o veículo pegar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="coverage-area">
+        <div class="coverage-content hidden">
+            <i class="fa-solid fa-location-crosshairs pulse-icon"></i>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <h2 style="color: var(--white);">Atuação em todo o <span style="color: var(--yellow);">Rio de Janeiro</span></h2>
+            </div>
+            <p>Atendemos todo o estado do Rio de Janeiro com agilidade e segurança. Atendimento prioritário para <b>São João de Meriti</b> e proximidades.</p>
+            <div class="tags-container">
+                <span class="geo-tag highlight"><i class="fa-solid fa-map-pin"></i> São João de Meriti</span>
+                <span class="geo-tag">Rio de Janeiro (Capital)</span>
+                <span class="geo-tag">Baixada Fluminense</span>
+                <span class="geo-tag">Zona Norte</span>
+                <span class="geo-tag">Zona Oeste</span>
+                <span class="geo-tag">Zona Sul</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">AUTO HELP GUINCHO</div>
+        <p>&copy; 2026 Todos os direitos reservados. Serviços de Guincho 24h.</p>
+        <p class="dev-credit">Desenvolvido com ⚡ por <a href="#" target="_blank">Volt Studio</a></p>
+    </footer>
+
+    <a href="https://wa.me/5521993337083?text=Olá,%20estou%20precisando%20de%20um%20guincho%20com%20urgência!" class="float-wa" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach((el) => observer.observe(el));
+        });
+    </script>
+</body>
+</html>

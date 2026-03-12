@@ -1,0 +1,481 @@
+:root {
+            --orange: #E8AF46;
+            --yellow: #FFD169;
+            --dark: #0f0f0f;
+            --darker: #050505;
+            --gray: #f0f0f0;
+            --white: #ffffff;
+            --whatsapp: #25D366;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--gray);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Animações Base */
+        .hidden {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: #090909;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--yellow);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--yellow);
+            font-size: 1.3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            font-style: italic;
+        }
+
+        .logo span { 
+            color: var(--orange); 
+            display: block; 
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-image {
+            max-width: 70%;
+            z-index: 5;
+            animation: float-hero 3s ease-in-out infinite;
+            margin: 30px 0;
+
+            /* 👇--- ADICIONE ESTAS LINHAS ---👇 */
+            border-radius: 100%; /* Garante que a sombra siga o formato redondo */
+            
+            /* Múltiplas sombras para criar um efeito esfumaçado e denso */
+            box-shadow: 
+                0 0 40px 10px rgba(0, 0, 0, 0.8),  /* Sombra densa e próxima */
+                0 0 80px 30px rgba(0, 0, 0, 0.6),  /* Sombra média */
+                0 0 140px 70px rgba(0, 0, 0, 0.4); /* Sombra ampla e suave */
+            /* ☝️--- ADICIONE ESTAS LINHAS ---☝️ */
+        }
+
+
+
+        .header-btn {
+            background-color: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-weight: 900;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 0 15px rgba(255, 78, 0, 0.4);
+            animation: pulse-orange 2s infinite;
+        }
+
+        /* --- HERO SECTION (Topo estilo Automotivo) --- */
+        .hero {
+            position: relative;
+            margin-top: 0px; /* Compensa o header fixo */
+            background-color: #0f0f0f;
+            padding: 60px 20px 120px;
+            color: var(--white);
+            text-align: center;
+            /* Corte diagonal na base inspirado no mrguincho */
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+        }
+
+        /* Faixa de Alerta (Hazard Stripes) */
+        .hazard-strip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--yellow),
+                var(--yellow) 10px,
+                var(--dark) 10px,
+                var(--dark) 20px
+            );
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            font-style: italic;
+            color: var(--white);
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 0px var(--dark);
+        }
+
+        .hero h1 span {
+            color: var(--yellow);
+            display: block;
+            font-size: 3.5rem;
+            text-shadow: 4px 4px 0px var(--orange);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px auto 40px;
+            max-width: 600px;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-giant {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 380px;
+            padding: 20px;
+            font-size: 1.4rem;
+            font-weight: 900;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .btn-giant:active { transform: scale(0.95); }
+        
+        .btn-main-call {
+            background-color: var(--yellow);
+            color: var(--dark);
+            box-shadow: 0 8px 0px #b38000; /* Efeito 3D */
+            margin-bottom: 10px;
+        }
+
+        .btn-main-wa {
+            background-color: var(--whatsapp);
+            color: var(--white);
+            box-shadow: 0 8px 0px #1a9347; /* Efeito 3D */
+        }
+
+        /* --- STRIP DE BENEFÍCIOS (Info Bar) --- */
+        .benefits-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            background-color: var(--orange);
+            color: var(--white);
+            margin-top: -60px; /* Puxa para cima do corte diagonal */
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+        }
+
+        .benefit-item i { font-size: 1.2rem; color: var(--darker); }
+
+        /* --- NOSSOS SERVIÇOS --- */
+        .services {
+            padding: 70px 20px;
+            background-color: var(--gray);
+            text-align: center;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 900;
+            font-style: italic;
+            text-transform: uppercase;
+            color: var(--darker);
+        }
+
+        .section-header span { color: var(--orange); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-box {
+            background-color: var(--white);
+            padding: 35px 20px;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .service-box:hover {
+            border-color: var(--yellow);
+            transform: translateY(-5px);
+        }
+
+        .service-box::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--orange);
+        }
+
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background-color: var(--darker);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--yellow);
+            font-size: 2rem;
+            box-shadow: 0 0 15px rgba(255, 183, 0, 0.3);
+        }
+
+        .service-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* --- ÁREA DE ATUAÇÃO (Fundo Pneu Escuro) --- */
+        .coverage-area {
+            padding: 80px 20px;
+            background-color: var(--darker);
+            color: var(--white);
+            text-align: center;
+            /* O Famoso Rastro de Pneu */
+            background-image: 
+                linear-gradient(to bottom, rgba(5, 5, 5, 0.95), rgba(15, 15, 15, 0.98)),
+                repeating-linear-gradient(45deg, transparent, transparent 15px, rgba(255, 183, 0, 0.04) 15px, rgba(255, 183, 0, 0.04) 30px),
+                repeating-linear-gradient(-45deg, transparent, transparent 15px, rgba(255, 183, 0, 0.04) 15px, rgba(255, 183, 0, 0.04) 30px);
+            border-top: 4px solid var(--orange);
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .coverage-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pulse-icon {
+            font-size: 4rem;
+            color: var(--yellow);
+            margin-bottom: 20px;
+            animation: pulse-yellow 2s infinite;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .geo-tag {
+            background-color: transparent;
+            border: 2px solid var(--yellow);
+            color: var(--yellow);
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-style: italic;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .geo-tag.highlight {
+            background-color: var(--yellow);
+            color: var(--darker);
+        }
+
+        /* --- RODAPÉ --- */
+        footer {
+            background-color: var(--dark);
+            color: #777;
+            text-align: center;
+            padding: 40px 20px 100px;
+        }
+
+        .footer-logo {
+            font-family: 'Montserrat', sans-serif;
+            color: #555;
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .dev-credit {
+            margin-top: 20px;
+            font-size: 0.85rem;
+        }
+        .dev-credit a { color: var(--orange); text-decoration: none; font-weight: bold; }
+
+        /* --- FLOATING WHATSAPP --- */
+        .float-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+            text-decoration: none;
+            z-index: 1000;
+            animation: bounce-wa 2s infinite;
+        }
+
+        /* Keyframes */
+        @keyframes pulse-orange {
+            0% { box-shadow: 0 0 0 0 rgba(255, 78, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 78, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 78, 0, 0); }
+        }
+        @keyframes pulse-yellow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 183, 0, 0.7)); }
+            50% { transform: scale(1.1); filter: drop-shadow(0 0 15px rgba(255, 183, 0, 0.5)); }
+            100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(255, 183, 0, 0)); }
+        }
+        @keyframes bounce-wa {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* Responsivo Tela Maior */
+        @media (min-width: 768px) {
+            .hero { padding: 120px 20px 150px; clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); }
+            .hero h1 { font-size: 3rem; }
+            .hero h1 span { font-size: 4.5rem; }
+            .cta-container { flex-direction: row; justify-content: center; max-width: 800px; margin: 0 auto;}
+            .btn-giant { margin-bottom: 0; }
+            .services-grid { grid-template-columns: repeat(3, 1fr); }
+            .benefits-strip { max-width: 900px; margin: -50px auto 0; border-radius: 8px; justify-content: space-around;}
+        }
+
+        /* Otimização para telas grandes (desktop) */
+        @media (min-width: 1200px) {
+            body {
+                font-size: 1.15rem;
+            }
+            .hero {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 140px 0 180px 0;
+            }
+            .hero-image {
+                max-width: 40%;
+                margin: 40px 0 40px 0;
+            }
+            .hero h1 {
+                font-size: 4rem;
+            }
+            .hero h1 span {
+                font-size: 5.5rem;
+            }
+            .cta-container {
+                max-width: 1000px;
+                gap: 30px;
+            }
+            .btn-giant {
+                font-size: 1.7rem;
+                padding: 28px;
+                max-width: 420px;
+            }
+            .services {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 100px 0;
+            }
+            .services-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 32px;
+            }
+            .benefits-strip {
+                max-width: 1200px;
+                font-size: 1.2rem;
+                padding: 32px 0;
+            }
+            .coverage-area {
+                max-width: 1400px;
+                margin: 0 auto;
+                padding: 100px 0;
+            }
+            .coverage-content {
+                font-size: 1.2rem;
+            }
+            .footer-logo {
+                font-size: 2.2rem;
+            }
+            footer {
+                font-size: 1.1rem;
+                padding: 60px 20px 120px;
+            }
+        }
